@@ -25,7 +25,7 @@ Javito – информационно-справочная система, пр�
 https://www.coindesk.com/price/. 
 
 ![alt-текст](https://github.com/defex04/Javito/blob/master/specification/struct.png)
-<p align="center"><img src="struct.png" width="55%"/> </p>
+<p align="center"><img src="struct.png" width="80%"/> </p>
 <p align="center">Рис. 1. Структура системы</p>
 
 ### 3.2. Предложения и ограничения реализации
