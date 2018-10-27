@@ -143,7 +143,7 @@ https://www.coindesk.com/price/.
 
 Во время запуска сервиса по умолчанию отображается график котировок по отношению к USD. Если пользователь не выбрал ни одного из предложенных фильтров (USD, CNY, EUR, GBP), ему выводится пустой график.
 
-<p align="center"><img src="web.png" width="100%"/> </p>
+<p align="center"><img src="web.png" width="50%"/> </p>
 
 ![alt-текст](https://github.com/defex04/Javito/blob/master/specification/web.png)
 
