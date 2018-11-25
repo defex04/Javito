@@ -1,6 +1,6 @@
 CREATE TABLE public."main"
 (
-    id integer NOT NULL,
+    id serial NOT NULL,
     "time" text COLLATE pg_catalog."default" NOT NULL,
     "usd_rate" real NOT NULL,
     "gbp_rate" real NOT NULL,
