@@ -8,19 +8,20 @@ import org.springframework.context.ApplicationContext;
 
 import com.db.javito.dao.interf.MainDao;
 import com.db.javito.service.interf.MainService;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 public class JavitoApplication {
 
     @Autowired
-    MainService mainService;
+    public static MainService mainService;
 
     public static void main(String[] args) {
 
         ApplicationContext context = SpringApplication.run(JavitoApplication.class, args);
 		System.out.println("Javito");
 
-        MainService mainService = context.getBean(MainService.class);
+        mainService = context.getBean(MainService.class);
 
         Main main = new Main();
         main.setTime("2018");
@@ -28,7 +29,7 @@ public class JavitoApplication {
         main.setEur_rate(3523.5f);
         main.setUsd_rate(36.8f);
 
-        mainService.insert(main);
+        //mainService.insert(main);
 
     }
 }
