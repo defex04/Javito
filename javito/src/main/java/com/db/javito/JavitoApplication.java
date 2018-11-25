@@ -1,6 +1,7 @@
 package com.db.javito;
 
 import com.db.javito.service.interf.EurPredictService;
+import com.db.javito.service.interf.GbpPredictService;
 import com.db.javito.service.interf.UsdPredictService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -18,6 +19,8 @@ public class JavitoApplication {
     public static EurPredictService eurPredictService;
     @Autowired
     public static UsdPredictService usdPredictService;
+    @Autowired
+    public static GbpPredictService gbpPredictService;
 
     public static void main(String[] args) {
 
@@ -27,6 +30,7 @@ public class JavitoApplication {
         mainService = context.getBean(MainService.class);
         eurPredictService = context.getBean(EurPredictService.class);
         usdPredictService = context.getBean(UsdPredictService.class);
+        gbpPredictService = context.getBean(GbpPredictService.class);
 
     }
 }

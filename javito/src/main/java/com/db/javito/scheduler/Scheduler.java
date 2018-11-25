@@ -2,6 +2,7 @@ package com.db.javito.scheduler;
 
 import com.db.javito.api.CoinDeskImp;
 import com.db.javito.model.EurPredict;
+import com.db.javito.model.GbpPredict;
 import com.db.javito.model.Main;
 import com.db.javito.model.UsdPredict;
 import org.json.JSONException;
@@ -10,9 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
-import static com.db.javito.JavitoApplication.eurPredictService;
-import static com.db.javito.JavitoApplication.mainService;
-import static com.db.javito.JavitoApplication.usdPredictService;
+import static com.db.javito.JavitoApplication.*;
 
 @Component
 public class Scheduler {
@@ -54,6 +53,17 @@ public class Scheduler {
             usdPredictService.insert(usdPredict);
         }
         System.out.println("UsdPredict");
+    }
+
+    @Scheduled(fixedRate = 36000)
+    public void gbpPredictLoadData(){
+        if (gbpPredictService != null) {
+            GbpPredict gbpPredict = new GbpPredict();
+            gbpPredict.setPredict_val_gbp(30f);
+            gbpPredict.setIncrease_decrease(false);
+            gbpPredictService.insert(gbpPredict);
+        }
+        System.out.println("GbpPredict");
     }
 
     @Scheduled(fixedRate = 36000)
