@@ -30,7 +30,7 @@ public class Scheduler {
         }
     }
 
-    @Scheduled(fixedRate = 36000)
+    //@Scheduled(fixedRate = 36000)
     public void clearTempFolder() {
         System.out.println("Timer works!");
     }
