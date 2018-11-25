@@ -22,6 +22,6 @@ public class Main implements Serializable {
     @Override
     public String toString() {
         return "Id " + id + " time " + time + " USD: " + usd_rate +
-        " GBP: " + gbp_rate + " EUR: " + eur_rate;
+                " GBP: " + gbp_rate + " EUR: " + eur_rate;
     }
 }

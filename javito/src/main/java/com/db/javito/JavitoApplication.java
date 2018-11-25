@@ -1,7 +1,5 @@
 package com.db.javito;
 
-import com.db.javito.model.EurPredict;
-import com.db.javito.model.Main;
 import com.db.javito.service.interf.EurPredictService;
 import com.db.javito.service.interf.UsdPredictService;
 import org.springframework.beans.factory.annotation.Autowired;
