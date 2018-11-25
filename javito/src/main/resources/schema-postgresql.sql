@@ -99,7 +99,7 @@ TABLESPACE pg_default;
 ALTER TABLE public."gbp_id_predict"
     OWNER to postgres;
 
-- Table: public."usd_predict";
+-- Table: public."usd_predict";
 
 CREATE TABLE public."usd_predict"
 (
