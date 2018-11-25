@@ -32,7 +32,7 @@ public class Scheduler {
         }
     }
 
-    @Scheduled(fixedRate = 36000)
+    //@Scheduled(fixedRate = 36000)
     public void eurPredictLoadData() {
         if (eurPredictService != null) {
             EurPredict eurPredict = new EurPredict();
@@ -43,7 +43,7 @@ public class Scheduler {
         System.out.println("EurPredict");
     }
 
-    @Scheduled(fixedRate = 36000)
+    //@Scheduled(fixedRate = 36000)
     public void clearTempFolder() {
         System.out.println("Timer works!");
     }
