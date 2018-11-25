@@ -1,8 +1,12 @@
 package com.db.javito.scheduler;
 
+import com.db.javito.api.CoinDeskImp;
 import com.db.javito.model.Main;
+import org.json.JSONException;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
 
 import static com.db.javito.JavitoApplication.mainService;
 
@@ -13,13 +17,15 @@ public class Scheduler {
     // Описание параметров фоновых задач
 
     @Scheduled(cron = "0 0 0/1 * * ?")
-    public void loadData() {
+    public void loadData() throws IOException, JSONException {
         if (mainService != null) {
             Main main = new Main();
-            main.setTime("2017");
-            main.setGbp_rate(25.5f);
-            main.setEur_rate(3523.5f);
-            main.setUsd_rate(36.8f);
+            CoinDeskImp coinDeskImp = new CoinDeskImp();
+            coinDeskImp.getRealTimeBPI();
+            main.setTime(coinDeskImp.getCurrentDate());
+            main.setGbp_rate(coinDeskImp.getGbp());
+            main.setEur_rate(coinDeskImp.getEur());
+            main.setUsd_rate(coinDeskImp.getUsd());
             mainService.insert(main);
         }
     }
