@@ -56,7 +56,7 @@ public class CoinDeskImp implements CoinDesk {
 
     }
 
-    @org.jetbrains.annotations.NotNull
+    //@org.jetbrains.annotations.NotNull
     private String sendRequest(String url) throws IOException {
 
         URL obj = new URL(url);

@@ -24,5 +24,4 @@ public class Main implements Serializable {
         return "Id " + id + " time " + time + " USD: " + usd_rate +
         " GBP: " + gbp_rate + " EUR: " + eur_rate;
     }
-
 }

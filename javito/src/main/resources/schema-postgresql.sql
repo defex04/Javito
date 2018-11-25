@@ -17,7 +17,7 @@ ALTER TABLE public."main"
 
 CREATE TABLE public."eur_predict"
 (
-    id_predict integer NOT NULL,
+    id_predict serial NOT NULL,
     "predict_val_eur" real NOT NULL,
     increase_decrease boolean NOT NULL,
     CONSTRAINT "eur_predict_pkey" PRIMARY KEY (id_predict)
@@ -32,7 +32,7 @@ ALTER TABLE public."eur_predict"
 
 CREATE TABLE public."eur_id_predict"
 (
-    "id_eur_predict" integer NOT NULL,
+    "id_eur_predict" serial NOT NULL,
     "id_eur" integer NOT NULL,
     id_predict integer NOT NULL,
     CONSTRAINT "eur_id_predict_pkey" PRIMARY KEY ("id_eur_predict"),
@@ -59,7 +59,7 @@ ALTER TABLE public."eur_id_predict"
 
 CREATE TABLE public."gbp_predict"
 (
-    id_predict integer NOT NULL,
+    id_predict serial NOT NULL,
     "predict_val_gbp" real NOT NULL,
     increase_decrease boolean NOT NULL,
     CONSTRAINT "gbp_predict_pkey" PRIMARY KEY (id_predict)
@@ -78,7 +78,7 @@ ALTER TABLE public."gbp_predict"
 
 CREATE TABLE public."gbp_id_predict"
 (
-    "id_gbp_predict" integer NOT NULL,
+    "id_gbp_predict" serial NOT NULL,
     "id_gbp" integer NOT NULL,
     id_predict integer NOT NULL,
     CONSTRAINT "gbp_id_predict_pkey" PRIMARY KEY ("id_gbp_predict"),
@@ -103,9 +103,9 @@ ALTER TABLE public."gbp_id_predict"
 
 CREATE TABLE public."usd_predict"
 (
+    id_predict serial NOT NULL,
     "predict_val_usd" real NOT NULL,
     increase_decrease boolean NOT NULL,
-    id_predict integer NOT NULL,
     CONSTRAINT "usd_predict_pkey" PRIMARY KEY (id_predict)
 )
 WITH (
@@ -122,7 +122,7 @@ ALTER TABLE public."usd_predict"
 
 CREATE TABLE public."usd_id_predict"
 (
-    "id_usd_predict" integer NOT NULL,
+    "id_usd_predict" serial NOT NULL,
     "id_usd" integer NOT NULL,
     id_predict integer NOT NULL,
     CONSTRAINT "usd_id_predict_pkey" PRIMARY KEY ("id_usd_predict"),
@@ -149,7 +149,7 @@ ALTER TABLE public."usd_id_predict"
 
 CREATE TABLE public."day"
 (
-    id integer NOT NULL,
+    id serial NOT NULL,
     id_day integer NOT NULL,
     CONSTRAINT "day_pkey" PRIMARY KEY (id),
     CONSTRAINT "day_id_day_key" UNIQUE (id_day)
@@ -169,7 +169,7 @@ ALTER TABLE public."day"
 
 CREATE TABLE public."eur_min_max"
 (
-    id integer NOT NULL,
+    id serial NOT NULL,
     id_day integer NOT NULL,
     "eur_max" real NOT NULL,
     "eur_min" real NOT NULL,
@@ -193,7 +193,7 @@ ALTER TABLE public."eur_min_max"
 
 CREATE TABLE public."gbp_min_max"
 (
-    id integer NOT NULL,
+    id serial NOT NULL,
     id_day integer NOT NULL,
     "gbp_max" real NOT NULL,
     "gbp_min" real NOT NULL,
@@ -217,7 +217,7 @@ ALTER TABLE public."gbp_min_max"
 
 CREATE TABLE public."usd_min_max"
 (
-    id integer NOT NULL,
+    id serial NOT NULL,
     id_day integer NOT NULL,
     "usd_max" real NOT NULL,
     "usd_min" real NOT NULL,
