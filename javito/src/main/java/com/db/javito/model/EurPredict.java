@@ -8,20 +8,18 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 @Data
-public class Main implements Serializable {
+public class EurPredict implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
 
-    String time;
-    Float usd_rate;
-    Float gbp_rate;
-    Float eur_rate;
+    Float predict_val_eur;
+    Boolean increase_decrease;
 
     @Override
     public String toString() {
-        return "Id " + id + " time " + time + " USD: " + usd_rate +
-                " GBP: " + gbp_rate + " EUR: " + eur_rate;
+        return "Id " + id + " predict_val_eur: " + predict_val_eur + " increase_decrease: " + increase_decrease;
     }
+
 }
