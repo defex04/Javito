@@ -15,25 +15,17 @@ import com.db.javito.service.interf.MainService;
 public class JavitoApplication {
 
     @Autowired
-    MainService mainService;
-    EurPredictService eurPredictService;
+    public static MainService mainService;
+    @Autowired
+    public static EurPredictService eurPredictService;
 
     public static void main(String[] args) {
 
         ApplicationContext context = SpringApplication.run(JavitoApplication.class, args);
-		System.out.println("Javito");
-        MainService mainService = context.getBean(MainService.class);
-        Main main = new Main();
-        main.setTime("2018");
-        main.setGbp_rate(25.5f);
-        main.setEur_rate(3523.5f);
-        main.setUsd_rate(36.8f);
-        mainService.insert(main);
+        System.out.println("Javito");
 
-        EurPredictService eurPredictService = context.getBean(EurPredictService.class);
-        EurPredict eurPredict = new EurPredict();
-        eurPredict.setPredict_val_eur(44.3f);
-        eurPredict.setIncrease_decrease(true);
-        eurPredictService.insert(eurPredict);
+        mainService = context.getBean(MainService.class);
+        eurPredictService = context.getBean(EurPredictService.class);
+
     }
 }
