@@ -30,8 +30,8 @@ public class Scheduler {
         }
     }
 
-    @Scheduled(fixedRate = 36000)
-    public void eurPredictLoadData(){
+    //@Scheduled(fixedRate = 36000)
+    public void eurPredictLoadData() {
         if (eurPredictService != null) {
             EurPredict eurPredict = new EurPredict();
             eurPredict.setPredict_val_eur(30f);
@@ -41,7 +41,7 @@ public class Scheduler {
         System.out.println("EurPredict");
     }
 
-    @Scheduled(fixedRate = 36000)
+    //@Scheduled(fixedRate = 36000)
     public void usdPredictLoadData(){
         if (usdPredictService != null) {
             UsdPredict usdPredict = new UsdPredict();
@@ -52,7 +52,7 @@ public class Scheduler {
         System.out.println("UsdPredict");
     }
 
-    @Scheduled(fixedRate = 36000)
+    //@Scheduled(fixedRate = 36000)
     public void gbpPredictLoadData(){
         if (gbpPredictService != null) {
             GbpPredict gbpPredict = new GbpPredict();
@@ -63,7 +63,7 @@ public class Scheduler {
         System.out.println("GbpPredict");
     }
 
-    @Scheduled(fixedRate = 36000)
+    //@Scheduled(fixedRate = 36000)
     public void dayLoadData(){
         if (dayService != null) {
             Day day = new Day();
@@ -73,7 +73,7 @@ public class Scheduler {
         System.out.println("Day");
     }
 
-    @Scheduled(fixedRate = 36000)
+    //@Scheduled(fixedRate = 36000)
     public void eurMinMaxLoadData(){
         if (eurMinMaxService != null) {
             EurMinMax eurMinMax = new EurMinMax();
@@ -85,7 +85,7 @@ public class Scheduler {
         System.out.println("EurMinMax");
     }
 
-    @Scheduled(fixedRate = 36000)
+    //@Scheduled(fixedRate = 36000)
     public void gbpMinMaxLoadData(){
         if (gbpMinMaxService != null) {
             GbpMinMax gbpMinMax = new GbpMinMax();
@@ -97,7 +97,7 @@ public class Scheduler {
         System.out.println("GbpMinMax");
     }
 
-    @Scheduled(fixedRate = 36000)
+    //@Scheduled(fixedRate = 36000)
     public void clearTempFolder() {
         System.out.println("Timer works!");
     }
