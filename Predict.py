@@ -47,7 +47,7 @@ def predict_prices(dates, prices, x):
     plt.legend()
     plt.show()
     
-    return svr_rbf.predict(x)[0], svr_lin.predict(x)[0]#, svr_poly.predict(x)[0]
+    return svr_rbf.predict(x)[0]#, svr_lin.predict(x)[0]#, svr_poly.predict(x)[0]
 
 get_data('data1.csv','gbp')
    
