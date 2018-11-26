@@ -86,6 +86,18 @@ public class Scheduler {
     }
 
     @Scheduled(fixedRate = 36000)
+    public void gbpMinMaxLoadData(){
+        if (gbpMinMaxService != null) {
+            GbpMinMax gbpMinMax = new GbpMinMax();
+            gbpMinMax.setIdDay(3);
+            gbpMinMax.setGbpMax(34.5f);
+            gbpMinMax.setGbpMin(22.2f);
+            gbpMinMaxService.insert(gbpMinMax);
+        }
+        System.out.println("GbpMinMax");
+    }
+
+    @Scheduled(fixedRate = 36000)
     public void clearTempFolder() {
         System.out.println("Timer works!");
     }
