@@ -1,10 +1,15 @@
 package com.db.javito;
 
 import com.db.javito.service.interf.*;
+import com.db.javito.math_python.PythonMath;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+
+import javax.script.ScriptException;
+import java.io.IOException;
+
 
 @SpringBootApplication
 public class JavitoApplication {
@@ -26,7 +31,7 @@ public class JavitoApplication {
     @Autowired
     public static UsdMinMaxService usdMinMaxService;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ScriptException, InterruptedException {
 
         ApplicationContext context = SpringApplication.run(JavitoApplication.class, args);
         System.out.println("Javito");
@@ -38,6 +43,9 @@ public class JavitoApplication {
         dayService = context.getBean(DayService.class);
         eurMinMaxService = context.getBean(EurMinMaxService.class);
         gbpMinMaxService = context.getBean(GbpMinMaxService.class);
+
+        PythonMath.runPython();
+
         usdMinMaxService = context.getBean(UsdMinMaxService.class);
     }
 }
