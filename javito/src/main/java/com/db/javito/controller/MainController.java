@@ -2,6 +2,7 @@ package com.db.javito.controller;
 
 import com.db.javito.model.Main;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,5 +22,10 @@ public class MainController {
             str.append(main.toString());
         }
         return str.toString();
+    }
+
+    @GetMapping("/greet")
+    public String greet() {
+        return "Hello world!";
     }
 }
