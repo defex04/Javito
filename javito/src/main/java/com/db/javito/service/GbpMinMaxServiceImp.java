@@ -4,7 +4,6 @@ import com.db.javito.dao.interf.GbpMinMaxDao;
 import com.db.javito.model.GbpMinMax;
 import com.db.javito.service.interf.GbpMinMaxService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 @Service

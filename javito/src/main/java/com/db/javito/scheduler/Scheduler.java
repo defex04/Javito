@@ -98,6 +98,18 @@ public class Scheduler {
     }
 
     @Scheduled(fixedRate = 36000)
+    public void usdMinMaxLoadData(){
+        if (usdMinMaxService != null) {
+            UsdMinMax usdMinMax = new UsdMinMax();
+            usdMinMax.setIdDay(3);
+            usdMinMax.setUsdMax(34.5f);
+            usdMinMax.setUsdMin(22.2f);
+            usdMinMaxService.insert(usdMinMax);
+        }
+        System.out.println("UsdMinMax");
+    }
+
+    @Scheduled(fixedRate = 36000)
     public void clearTempFolder() {
         System.out.println("Timer works!");
     }
