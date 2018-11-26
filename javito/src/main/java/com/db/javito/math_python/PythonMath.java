@@ -5,7 +5,7 @@ import java.io.*;
 
 public class PythonMath {
 
-
+    public static String test = "Удалить этот костыль! ";
     public static void runPython() throws IOException, ScriptException, InterruptedException {
 
         // set up the command and parameter
@@ -28,7 +28,7 @@ public class PythonMath {
         while ((line = in.readLine()) != null)
             ret.append(line);
 
-        System.out.println("value is : " + ret);
+        test += ret;
 
     }
 

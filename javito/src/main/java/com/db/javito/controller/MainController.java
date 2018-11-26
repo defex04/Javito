@@ -1,5 +1,6 @@
 package com.db.javito.controller;
 
+import com.db.javito.math_python.PythonMath;
 import com.db.javito.model.Main;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +25,8 @@ public class MainController {
         return str.toString();
     }
 
-    @GetMapping("/greet")
+    @GetMapping("/hello")
     public String greet() {
-        return "Hello world!";
+        return PythonMath.test;
     }
 }
