@@ -54,3 +54,4 @@ get_data('data1.csv','gbp')
 print(prices)
 
 predict = predict_prices(dates, prices, 30)
+print(predict)
