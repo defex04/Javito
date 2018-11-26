@@ -6,16 +6,14 @@ import java.io.*;
 public class PythonMath {
 
     public static String test = "Удалить этот костыль! ";
+
     public static void runPython() throws IOException, ScriptException, InterruptedException {
 
-        // set up the command and parameter
         String pythonScriptPath = "python/test.py";
         String[] cmd = {"python", pythonScriptPath};
 
-        // create runtime to execute external command
         ProcessBuilder pb = new ProcessBuilder(cmd);
 
-        // retrieve output from python script
         pb.redirectError();
 
         Process p = pb.start();
