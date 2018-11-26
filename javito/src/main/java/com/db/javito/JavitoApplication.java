@@ -35,7 +35,6 @@ public class JavitoApplication {
 
         ApplicationContext context = SpringApplication.run(JavitoApplication.class, args);
         System.out.println("Javito");
-
         mainService = context.getBean(MainService.class);
         eurPredictService = context.getBean(EurPredictService.class);
         usdPredictService = context.getBean(UsdPredictService.class);
@@ -43,9 +42,7 @@ public class JavitoApplication {
         dayService = context.getBean(DayService.class);
         eurMinMaxService = context.getBean(EurMinMaxService.class);
         gbpMinMaxService = context.getBean(GbpMinMaxService.class);
-
-        PythonMath.runPython();
-
         usdMinMaxService = context.getBean(UsdMinMaxService.class);
+        PythonMath.runPython();
     }
 }
