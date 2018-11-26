@@ -6,6 +6,8 @@ import com.db.javito.service.interf.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MainServiceImp implements MainService {
 
@@ -20,5 +22,10 @@ public class MainServiceImp implements MainService {
     @Override
     public String getById(Integer id) {
         return null;
+    }
+
+    @Override
+    public List<Main> getAllData() {
+        return mainDao.getAllData();
     }
 }
