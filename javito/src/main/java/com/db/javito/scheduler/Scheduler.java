@@ -34,7 +34,7 @@ public class Scheduler {
     }
 
     //@Scheduled(fixedRate = 36000)
-    public void eurPredictLoadData(){
+    public void eurPredictLoadData() {
         if (eurPredictService != null) {
             EurPredict eurPredict = new EurPredict();
             eurPredict.setPredict_val_eur(30f);
