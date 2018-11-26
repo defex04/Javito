@@ -67,10 +67,22 @@ public class Scheduler {
     public void dayLoadData(){
         if (dayService != null) {
             Day day = new Day();
-            day.setId_day(3);
+            day.setIdDay(4);
             dayService.insert(day);
         }
         System.out.println("Day");
+    }
+
+    @Scheduled(fixedRate = 36000)
+    public void eurMinMaxLoadData(){
+        if (eurMinMaxService != null) {
+            EurMinMax eurMinMax = new EurMinMax();
+            eurMinMax.setIdDay(3);
+            eurMinMax.setEurMax(34.5f);
+            eurMinMax.setEurMin(22.2f);
+            eurMinMaxService.insert(eurMinMax);
+        }
+        System.out.println("EurMinMax");
     }
 
     @Scheduled(fixedRate = 36000)

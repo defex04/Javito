@@ -19,6 +19,8 @@ public class JavitoApplication {
     public static GbpPredictService gbpPredictService;
     @Autowired
     public static DayService dayService;
+    @Autowired
+    public static EurMinMaxService eurMinMaxService;
 
     public static void main(String[] args) {
 
@@ -30,5 +32,6 @@ public class JavitoApplication {
         usdPredictService = context.getBean(UsdPredictService.class);
         gbpPredictService = context.getBean(GbpPredictService.class);
         dayService = context.getBean(DayService.class);
+        eurMinMaxService = context.getBean(EurMinMaxService.class);
     }
 }

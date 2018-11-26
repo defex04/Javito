@@ -21,5 +21,4 @@ public class EurPredict implements Serializable {
     public String toString() {
         return "Id " + id + " predict_val_eur: " + predict_val_eur + " increase_decrease: " + increase_decrease;
     }
-
 }
