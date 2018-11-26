@@ -1,10 +1,7 @@
 package com.db.javito.scheduler;
 
 import com.db.javito.api.CoinDeskImp;
-import com.db.javito.model.EurPredict;
-import com.db.javito.model.GbpPredict;
-import com.db.javito.model.Main;
-import com.db.javito.model.UsdPredict;
+import com.db.javito.model.*;
 import org.json.JSONException;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -64,6 +61,40 @@ public class Scheduler {
             gbpPredictService.insert(gbpPredict);
         }
         System.out.println("GbpPredict");
+    }
+
+    //@Scheduled(fixedRate = 36000)
+    public void dayLoadData(){
+        if (dayService != null) {
+            Day day = new Day();
+            day.setIdDay(4);
+            dayService.insert(day);
+        }
+        System.out.println("Day");
+    }
+
+    //@Scheduled(fixedRate = 36000)
+    public void eurMinMaxLoadData(){
+        if (eurMinMaxService != null) {
+            EurMinMax eurMinMax = new EurMinMax();
+            eurMinMax.setIdDay(3);
+            eurMinMax.setEurMax(34.5f);
+            eurMinMax.setEurMin(22.2f);
+            eurMinMaxService.insert(eurMinMax);
+        }
+        System.out.println("EurMinMax");
+    }
+
+    //@Scheduled(fixedRate = 36000)
+    public void gbpMinMaxLoadData(){
+        if (gbpMinMaxService != null) {
+            GbpMinMax gbpMinMax = new GbpMinMax();
+            gbpMinMax.setIdDay(3);
+            gbpMinMax.setGbpMax(34.5f);
+            gbpMinMax.setGbpMin(22.2f);
+            gbpMinMaxService.insert(gbpMinMax);
+        }
+        System.out.println("GbpMinMax");
     }
 
     //@Scheduled(fixedRate = 36000)
