@@ -1,10 +1,7 @@
 package com.db.javito.scheduler;
 
 import com.db.javito.api.CoinDeskImp;
-import com.db.javito.model.EurPredict;
-import com.db.javito.model.GbpPredict;
-import com.db.javito.model.Main;
-import com.db.javito.model.UsdPredict;
+import com.db.javito.model.*;
 import org.json.JSONException;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -64,6 +61,16 @@ public class Scheduler {
             gbpPredictService.insert(gbpPredict);
         }
         System.out.println("GbpPredict");
+    }
+
+    @Scheduled(fixedRate = 36000)
+    public void dayLoadData(){
+        if (dayService != null) {
+            Day day = new Day();
+            day.setId_day(3);
+            dayService.insert(day);
+        }
+        System.out.println("Day");
     }
 
     @Scheduled(fixedRate = 36000)
