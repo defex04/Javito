@@ -7,47 +7,34 @@ class History extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data : [{
-        date: ['23.11'],// '24.11', '25.11'],
-        trends: ['upImg'],// 'dwnImg', 'upImg'],
-        past_forecast: ['win']//, 'win', 'lose']
-      }],
-      
-      columns : [{
-        Header: 'Date',
-        accessor: 'date', // String-based value accessors!
-      }, {
-        Header: 'Trends',
-        accessor: 'trends'
-        //Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-      }, {
-        Header: 'Past forecast',
-        accessor: 'past_forecast'
-      }
-    ],
-
+      data: ""
     }
   }
-    
+
+    componentDidMount() {
+
+        // var options = {
+        //     method: 'get',
+        //     headers: {
+        //         "Access-Control-Request-Headers": "*",
+        //         "Access-Control-Request-Method": "*"
+        //     },
+        // }
+        //this.setState({isLoading: true});
+        fetch('http://localhost:8081/hello')
+            .then(response => response.text())
+            .then(dataFromJava => this.setState({data: dataFromJava }));
+    }
 
 
   render() {
-    const { data, columns } = this.state;
     return (
-      <div className=" text-center">
-      <h4> History</h4>
-      
-
-       <ReactTable
-          data={data}
-          columns={columns}
-          defaultPageSize={3}
-          showPaginationBottom = {false}
-        />
-      </div>
-      
+        <div>
+          <h1>{this.state.data}</h1>
+        </div>
     )
   }
+
 }
 
 export default History;
