@@ -1,0 +1,18 @@
+body {
+  font-family: Arial, Helvetica, sans-serif
+}
+
+
+.showChart {
+  position: relative;
+  float: left;
+}
+
+.basicChart {
+  position: relative;
+  float: left;
+}
+
+.content {
+  margin: 30px
+}
