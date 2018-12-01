@@ -36,7 +36,6 @@ public class MainController {
     }
 
     @PostMapping("/ha")
-    @CrossOrigin(origins = "http://localhost")
     public String gt() {
         return "haha";
     }
