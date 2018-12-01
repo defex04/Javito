@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ReactTable from "react-table";
-import 'react-table/react-table.css'
+/* import ReactTable from "react-table";
+ */import 'react-table/react-table.css'
 import '../../App.css';
 
 class History extends Component {

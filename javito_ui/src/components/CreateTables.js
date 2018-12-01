@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import 'react-table/react-table.css'
 import '../App.css';
-import History from './CreateTables_sub/History'
-import Forecast from './CreateTables_sub/Forecast'
+/* import History from './CreateTables_sub/History'
+ */import Forecast from './CreateTables_sub/Forecast'
 import PropTableHistory from './CreateTables_sub/PropTableHistory'
 //import Forecast from './CreateTables_sub/Forecast'
 
@@ -17,8 +17,8 @@ class CreateTables extends Component {
           <PropTableHistory />
         </div>
         <div className="col-md-5">
-          <History />
-        </div>
+{/*           <History />
+ */}       </div>
         <div className="col-md-4">
           <Forecast />
         </div>

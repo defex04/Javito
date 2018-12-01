@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import Chart from 'react-apexcharts';
-import axios from 'axios';
-
-import {FakeDb} from './FakeDb'
-
+/* import axios from 'axios';
+ */
 
 class Basic extends Component {
   constructor (props) {
@@ -131,11 +129,9 @@ class Basic extends Component {
               data: data_val
             }],           
           }));
-          
 
           console.log('fromDate:  ', this.state.fromDate);
           console.log('toDate: ', this.state.toDate);
-          
         },
         
         (error) => {
@@ -154,11 +150,12 @@ class Basic extends Component {
 
   /* Submits a command for graph rendering  */
   onSubmit = (e) => {
+
     e.preventDefault();
 
-    const URL = "http://localhost:3000/data";
+    const URL = "http://localhost:3000/chart_data/";
     
-
+    this.getRequest(URL);
 
   }
 
