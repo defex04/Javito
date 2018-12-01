@@ -21,7 +21,7 @@ class History extends Component {
         //     },
         // }
         //this.setState({isLoading: true});
-        fetch('https://javito2018.herokuapp.com/hello')
+        fetch('https://javitoserver2018.herokuapp.com/hello')
             .then(response => response.text())
             .then(dataFromJava => this.setState({data: dataFromJava }));
     }
