@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import CreateGraph from './components/CreateGraph';
+import Chart from './components/Chart';
 import Header from './components/Header';
-import CreateTables from './components/CreateTables';
+import Tables from './components/Tables';
 /* import GETRequest from './components/requests/post/GetRequest'
  */
 
@@ -11,8 +11,8 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <CreateGraph />
-        <CreateTables /> 
+        <Chart />
+        <Tables /> 
         {/*<GETRequest />*/}
       </div>
     );  

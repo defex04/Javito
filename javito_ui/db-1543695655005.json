@@ -50,8 +50,7 @@
       "EUR": "584.149"
     }
   ],
-
-    "table": [
+  "table": [
     {
       "id": 1,
       "date": "2018/11/25",
@@ -59,7 +58,6 @@
       "forecast": "up",
       "result": "win"
     },
-
     {
       "id": 2,
       "date": "2018/11/24",
@@ -67,7 +65,6 @@
       "forecast": "down",
       "result": "lose"
     },
-    
     {
       "id": 3,
       "date": "2018/11/23",

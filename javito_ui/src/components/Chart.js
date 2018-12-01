@@ -161,7 +161,8 @@ class ChartX extends Component {
   render() {
     const {currency, fromDate, toDate} = this.state;
     return (
-      <div>
+      <div className="container d-flex flex-wrap content m-auto">
+        <div className = "col-md-12 ">
         <Chart 
           options={this.state.options}
           series={this.state.series}
@@ -217,6 +218,7 @@ class ChartX extends Component {
        
         </form>
       </div>
+    </div>
     )
   }
 }
