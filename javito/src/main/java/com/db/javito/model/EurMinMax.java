@@ -8,17 +8,18 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 @Data
-public class EurPredict implements Serializable {
+public class EurMinMax implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
 
-    Float predict_val_eur;
-    Boolean increase_decrease;
+    Integer idDay;
+    Float eurMax;
+    Float eurMin;
 
     @Override
     public String toString() {
-        return "Id " + id + " predict_val_eur: " + predict_val_eur + " increase_decrease: " + increase_decrease;
+        return "Id " + id + " id_day: " + idDay + " eur_max: " + eurMax + " eur_min: " + eurMin;
     }
 }

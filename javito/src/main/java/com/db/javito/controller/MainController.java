@@ -3,10 +3,8 @@ package com.db.javito.controller;
 import com.db.javito.math_python.PythonMath;
 import com.db.javito.model.Main;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 import static com.db.javito.JavitoApplication.mainService;
 
@@ -26,7 +24,20 @@ public class MainController {
     }
 
     @GetMapping("/hello")
+    @CrossOrigin(origins = "http://localhost:3000")
     public String greet() {
         return PythonMath.test;
+    }
+
+    @RequestMapping(value="user", method = RequestMethod.GET)
+    public @ResponseBody String getitem(@RequestParam("data") String itemid){
+        String i = itemid;
+        return i;
+    }
+
+    @PostMapping("/ha")
+    @CrossOrigin(origins = "http://localhost")
+    public String gt() {
+        return "haha";
     }
 }
