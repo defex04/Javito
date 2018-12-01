@@ -24,7 +24,7 @@ public class MainController {
     }
 
     @GetMapping("/hello")
-    @CrossOrigin(origins = "https://javito2018.herokuapp.com/")
+    @CrossOrigin(origins = "https://javitoserver2018.herokuapp.com/")
     public String greet() {
         return PythonMath.test;
     }
