@@ -121,6 +121,17 @@ public class Scheduler {
     }
 
     @Scheduled(fixedRate = 36000)
+    public void usdIdPredictLoadData(){
+        if (usdIdPredictService != null) {
+            UsdIdPredict usdIdPredict = new UsdIdPredict();
+            usdIdPredict.setIdUsd(1);
+            usdIdPredict.setIdPredict(1);
+            usdIdPredictService.insert(usdIdPredict);
+        }
+        System.out.println("UsdIdPredict");
+    }
+
+    @Scheduled(fixedRate = 36000)
     public void clearTempFolder() {
         System.out.println("Timer works!");
     }

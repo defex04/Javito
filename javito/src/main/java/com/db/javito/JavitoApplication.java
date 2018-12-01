@@ -32,6 +32,8 @@ public class JavitoApplication {
     public static UsdMinMaxService usdMinMaxService;
     @Autowired
     public static  EurIdPredictService eurIdPredictService;
+    @Autowired
+    public static UsdIdPredictService usdIdPredictService;
 
     public static void main(String[] args) throws IOException, ScriptException, InterruptedException {
 
@@ -46,6 +48,7 @@ public class JavitoApplication {
         gbpMinMaxService = context.getBean(GbpMinMaxService.class);
         usdMinMaxService = context.getBean(UsdMinMaxService.class);
         eurIdPredictService = context.getBean(EurIdPredictService.class);
+        usdIdPredictService = context.getBean(UsdIdPredictService.class);
         PythonMath.runPython();
     }
 }
