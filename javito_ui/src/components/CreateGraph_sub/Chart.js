@@ -3,7 +3,7 @@ import Chart from 'react-apexcharts';
 /* import axios from 'axios';
  */
 
-class Basic extends Component {
+class ChartX extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -67,33 +67,33 @@ class Basic extends Component {
       .then(
         (result) => {
 
-          /* Get all date parametrs */
+          /* Get all data parametrs */
           let date_mass = result.map((number) => number.date);
           let data_val = '';
-          let val_text = '';
+          let text_val = '';
 
           /* Gets params from drop-down list and set data for state*/
           switch (this.state.currency) {
             case 'USD':
               data_val = result.map((number) => +number.USD);
-              val_text = 'BTC course of USD';
+              text_val = 'BTC course of USD';
               break;
             
             case 'EUR':
               data_val = result.map((number) => +number.EUR);
-              val_text = 'BTC course of EUR';
+              text_val = 'BTC course of EUR';
 
               break;
 
             case 'GBP':
               data_val = result.map((number) => +number.GBP);
-              val_text = 'BTC course of GBP';
+              text_val = 'BTC course of GBP';
 
               break;
           
             default:
               data_val = result.map((number) => +number.USD);
-              val_text = 'BTC course of USD';
+              text_val = 'BTC course of USD';
               break;
           }
 
@@ -104,12 +104,7 @@ class Basic extends Component {
             fromDate,
             toDate
           }
-
-
-          /* if date in state not empty and fromDate less toDate,
-             then sends data in state  */
-          if (newData.fromDate !== '' && newData.toDate !== '' 
-              && newData.fromDate < newData.toDate &&
+         
           this.setState({
 
             fromDate: newData.fromDate,
@@ -121,24 +116,17 @@ class Basic extends Component {
               },
 
               title: {
-                text: val_text,
+                text: text_val,
               }
             },
 
            series: [{
               data: data_val
             }],           
-          }));
+          });
 
           console.log('fromDate:  ', this.state.fromDate);
           console.log('toDate: ', this.state.toDate);
-        },
-        
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
         }
       )
     }
@@ -150,39 +138,26 @@ class Basic extends Component {
 
   /* Submits a command for graph rendering  */
   onSubmit = (e) => {
-
     e.preventDefault();
 
-    const URL = "http://localhost:3000/chart_data/";
-    
-    this.getRequest(URL);
+    const data = {
+      fromDate: this.state.fromDate,
+      toDate: this.state.toDate,
+      currency: this.state.currency
+    };
 
+    const URL =`http://localhost:3000/chart_data?fromDate=${data.fromDate}&toDate=${data.toDate}&currency=${data.currency}`;
+
+     /* if date in state not empty and fromDate less toDate,
+      then sends data in state  */
+    if (data.fromDate !== '' 
+      && data.toDate !== ''
+      && data.fromDate < data.toDate
+      && this.getRequest(URL)
+    );
   }
 
-    
-    //Проверка пустых полей
-    /* if (newData.fromDate < newData.toDate) {
-      console.log(JSON.stringify(newData));
-    } 
-    
-    else console.log('Wrong! Check your date'); */
-
-    //POST запрос на сервер
-    /* fetch('https://mywebsite.com/endpoint/', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      firstParam: 'yourValue',
-      secondParam: 'yourOtherValue',
-    })
-  }) */
-    /* Код ? */
   
-
-    
   render() {
     const {currency, fromDate, toDate} = this.state;
     return (
@@ -246,4 +221,4 @@ class Basic extends Component {
   }
 }
 
-export default Basic;
+export default ChartX;
