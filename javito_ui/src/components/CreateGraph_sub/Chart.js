@@ -152,7 +152,7 @@ class ChartX extends Component {
       then sends data in state  */
     if (data.fromDate !== '' 
       && data.toDate !== ''
-      && data.fromDate < data.toDate
+      && data.fromDate <= data.toDate
       && this.getRequest(URL)
     );
   }
