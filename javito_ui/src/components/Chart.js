@@ -4,9 +4,33 @@ import ChartForm from './chart_modules/ChartForm';
 /* import axios from 'axios';
  */
 
+ /* <div className="container d-flex flex-wrap content m-auto">
+        <div className = "col-md-12 ">
+         
+        
+        <ChartForm
+          fromDate = {fromDate}
+          toDate = {toDate}
+          currency = {currency}
+          options_curency = {this.state.options_curency}
+          onChange = {this.onChange}
+          onSubmit = {this.onSubmit}
+        />
+          <Chart 
+            options={this.state.options}
+            series={this.state.series}
+            type="line"
+            height="450px"
+            width="100%"
+          />
+        </div>
+      </div> */
+
 class ChartX extends Component {
   constructor (props) {
     super(props);
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
     this.state = {
 
       /* Params of drop-down list with currency */
@@ -24,9 +48,7 @@ class ChartX extends Component {
         },
 
         xaxis: {
-          categories: [
-            
-          ]
+          categories: []
         },
          
         grid: {
@@ -162,26 +184,32 @@ class ChartX extends Component {
   render() {
     const {currency, fromDate, toDate} = this.state;
     return (
-      <div className="container d-flex flex-wrap content m-auto">
+      <div>
         <div className = "col-md-12 ">
-        <Chart 
-          options={this.state.options}
-          series={this.state.series}
-          type="line"
-          height="450px"
-          width="100%"
-        />
-      
-        <ChartForm
-          fromDate = {fromDate}
-          toDate = {toDate}
-          currency = {currency}
-          options_curency = {this.state.options_curency}
-          onChange = {this.onChange}
-          onSubmit = {this.onSubmit}
-        />
+
+          <div className="card pr-2 pl-2">
+            <ChartForm
+              fromDate = {fromDate}
+              toDate = {toDate}
+              currency = {currency}
+              options_curency = {this.state.options_curency}
+              onChange = {this.onChange}
+              onSubmit = {this.onSubmit}
+            />
+          </div>
+        </div>
+
+        <div className = "col-md-12  ">
+          <Chart 
+            options={this.state.options}
+            series={this.state.series}
+            type="line"
+            height="450px"
+            width="100%"
+          />
+        </div>
       </div>
-    </div>
+      
     )
   }
 }

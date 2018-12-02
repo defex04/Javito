@@ -10,9 +10,17 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Chart />
-        <Forecast /> 
+        
+        <div className ="container">
+          <div className="mb-5">
+            <Chart />
+          </div>
+
+        <div className="col-lg-5 col-md-7">
+          <Forecast /> 
+        </div>
       </div>
+    </div>
     );  
   }
 }
