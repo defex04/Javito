@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Chart from 'react-apexcharts';
+import ChartForm from './chart_modules/ChartForm';
 /* import axios from 'axios';
  */
 
@@ -170,53 +171,15 @@ class ChartX extends Component {
           height="450px"
           width="100%"
         />
-
-        <form
-          onSubmit={this.onSubmit}
-          className = " form-inline float-right" >
-        
-          From
-          <input 
-            className="m-2 form-control form-control-sm"
-            type="date"
-            name="fromDate"
-            value = {fromDate}
-            onChange = {this.onChange}
-          /> 
-            
-          To
-          <input 
-            className ="m-2 form-control form-control-sm"
-            type="date"
-            name="toDate"
-            value = {toDate}
-            onChange = {this.onChange}
-          /> 
-
-          Value
-          <select
-            className = " form-control form-control-sm m-2 mr-2"
-            style={{cursor:'pointer'}}
-            name="currency"
-            onChange = {this.onChange}
-            value={currency}
-          >
-
-          {this.state.options_curency.map((option, idx) =>
-            <option
-              key={idx}
-              value={option}>
-            {option} 
-            </option>)}
-          </select>
-            
-          <input 
-            type="submit"
-            className="btn btn-success btn-sm "
-            value = "Show"
-          />
-       
-        </form>
+      
+        <ChartForm
+          fromDate = {fromDate}
+          toDate = {toDate}
+          currency = {currency}
+          options_curency = {this.state.options_curency}
+          onChange = {this.onChange}
+          onSubmit = {this.onSubmit}
+        />
       </div>
     </div>
     )

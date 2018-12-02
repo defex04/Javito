@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Chart from './components/Chart';
 import Header from './components/Header';
-import Tables from './components/Tables';
-/* import GETRequest from './components/requests/post/GetRequest'
- */
+import Forecast from './components/Forecast';
+
 
 class App extends Component {
   render() {
@@ -12,8 +11,7 @@ class App extends Component {
       <div>
         <Header />
         <Chart />
-        <Tables /> 
-        {/*<GETRequest />*/}
+        <Forecast /> 
       </div>
     );  
   }
