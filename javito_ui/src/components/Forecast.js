@@ -68,7 +68,7 @@ class History extends Component {
     const {data, forecast, tomorrow} = this.state;
     return (
       <React.Fragment>
-        <div className = "mt-5 fs-10">
+        <div className = "fs-10">
           <h3> Results of forecasts: </h3>
             <BootstrapTable data={data}>
               <TableHeaderColumn dataField='date' isKey>Date</TableHeaderColumn>
@@ -88,8 +88,8 @@ class History extends Component {
               <TableHeaderColumn dataField='result'>Results</TableHeaderColumn>
             </BootstrapTable>
           </div>
-        <div className="">
-          <h5> Forecast of BTC-cource on tommorow,  {tomorrow}, is {forecast} </h5>
+        <div className="mt-5 ">
+          Forecast of BTC-cource on tommorow,  {tomorrow}, is {forecast} 
         </div>
       </React.Fragment>
     );

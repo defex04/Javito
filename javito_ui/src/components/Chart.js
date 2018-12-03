@@ -200,7 +200,7 @@ class ChartX extends Component {
           </div>
         </div>
 
-        <div className = "">
+        <div>
           <Chart 
             options={this.state.options}
             series={this.state.series}

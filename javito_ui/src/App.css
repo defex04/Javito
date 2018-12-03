@@ -28,3 +28,7 @@ body {
 .fs-10 {
   font-size: 14px;
 }
+
+.bgc-blue {
+  background-color: rgb(229, 233, 245);
+}
