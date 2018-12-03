@@ -186,7 +186,7 @@ class ChartX extends Component {
     const {currency, fromDate, toDate} = this.state;
     return (
       <div>
-        <div className = "col-md-12 ">
+        <div className = "pb-5">
 
           <div>
             <ChartForm
@@ -200,7 +200,7 @@ class ChartX extends Component {
           </div>
         </div>
 
-        <div className = "col-md-12  mt-5">
+        <div className = "">
           <Chart 
             options={this.state.options}
             series={this.state.series}

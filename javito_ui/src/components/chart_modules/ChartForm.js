@@ -13,7 +13,7 @@ const { fromDate,
     <div>
       <form
           onSubmit={onSubmit}
-          className = " form-inline float-right" >
+          className = " form-inline float-left" >
         
           From
           <input 

@@ -2,7 +2,10 @@ body {
   font-family: Arial, Helvetica, sans-serif
 }
 
-
+.container 
+{
+  max-width: 1366px;
+}
 .showChart {
   position: relative;
   float: left;
@@ -15,4 +18,13 @@ body {
 
 .content {
   margin: 30px
+}
+
+.vl {
+  border-left: 2px solid rgb(241, 239, 239);
+  height: 500px;
+}
+
+.fs-10 {
+  font-size: 14px;
 }

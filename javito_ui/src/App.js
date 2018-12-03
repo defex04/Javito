@@ -12,12 +12,12 @@ class App extends Component {
       <div>
         <Header />
         
-        <div className ="container">
-          <div className="mb-5">
+        <div className ="container d-flex">
+          <div className="mb-5 col-md-8">
             <Chart />
           </div>
 
-          <div className="col-lg-7 col-md-7">
+          <div className="col-md-4 mt-2 vl">
             <Forecast /> 
           </div>
         </div>
