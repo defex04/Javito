@@ -1,30 +1,7 @@
 import React, { Component } from 'react';
 import Chart from 'react-apexcharts';
 import ChartForm from './chart_modules/ChartForm';
-/* import axios from 'axios';
- */
 
- /* <div className="container d-flex flex-wrap content m-auto">
-        <div className = "col-md-12 ">
-         
-        
-        <ChartForm
-          fromDate = {fromDate}
-          toDate = {toDate}
-          currency = {currency}
-          options_curency = {this.state.options_curency}
-          onChange = {this.onChange}
-          onSubmit = {this.onSubmit}
-        />
-          <Chart 
-            options={this.state.options}
-            series={this.state.series}
-            type="line"
-            height="450px"
-            width="100%"
-          />
-        </div>
-      </div> */
 
 class ChartX extends Component {
   constructor (props) {
@@ -67,7 +44,7 @@ class ChartX extends Component {
         },
     
         title: {
-          text: 'BTC course',
+          text: 'BTC course of USD',
           align: 'center',
           margin: 20,
           offsetY: 20,
@@ -84,6 +61,30 @@ class ChartX extends Component {
 
   /* Function, that sets the values in state */
   
+  componentDidMount () {
+    fetch ('http://localhost:3000/chart_data')
+      .then(res => res.json())
+      .then(
+        (result) => {
+
+          let date_mass = result.map((number) => number.date);
+          let data_val = result.map((number) => +number.USD);
+
+          this.setState({
+
+            options: {
+              xaxis: {
+                categories: date_mass
+              }
+            },
+
+            series: [{
+                data: data_val
+              }],           
+            }); 
+        })
+  }
+
   getRequest = (URL) => { 
     fetch(URL)
       .then(res => res.json())
@@ -187,7 +188,7 @@ class ChartX extends Component {
       <div>
         <div className = "col-md-12 ">
 
-          <div className="card pr-2 pl-2">
+          <div>
             <ChartForm
               fromDate = {fromDate}
               toDate = {toDate}
@@ -199,7 +200,7 @@ class ChartX extends Component {
           </div>
         </div>
 
-        <div className = "col-md-12  ">
+        <div className = "col-md-12  mt-5">
           <Chart 
             options={this.state.options}
             series={this.state.series}

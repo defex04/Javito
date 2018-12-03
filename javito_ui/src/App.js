@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Chart from './components/Chart';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Forecast from './components/Forecast';
 
 
@@ -16,11 +17,13 @@ class App extends Component {
             <Chart />
           </div>
 
-        <div className="col-lg-5 col-md-7">
-          <Forecast /> 
+          <div className="col-lg-7 col-md-7">
+            <Forecast /> 
+          </div>
         </div>
+        
+        <Footer />
       </div>
-    </div>
     );  
   }
 }
