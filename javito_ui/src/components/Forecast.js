@@ -13,9 +13,15 @@ class History extends Component {
     this.state = {
       data: [], 
       tomorrow: tomorrow_date,
-      
-      data_tags: [],
 
+      current_status: 
+      {
+        usd: '',
+        eur: '',
+        gbp: ''
+      }
+      ,
+      
       forecast: [],
       
       columns : [{
@@ -62,14 +68,48 @@ class History extends Component {
           forecast: forecast_val[0]
         })
       })
+      
+      fetch('http://localhost:3000/chart_data')
+      .then(response => response.json())
+      .then(result => {
+        console.log(result);
+        let curStatus_mass = result.map((number) => number);        
+        let curStatus = curStatus_mass.pop();
+
+        console.log(curStatus.USD);
+        
+        this.setState({
+          current_status:  
+            {
+              usd: +curStatus.USD,
+              eur: +curStatus.EUR,
+              gbp: +curStatus.GBP
+            }
+          
+        });
+
+        console.log('curstatus', this.state.current_status)
+        //console.log('current status: ', current_status.pop());
+
+       /*  this.setState (
+        {
+          forecast: forecast_val[0]
+        }) */
+      })
   }
   
   render() {
     const {data, forecast, tomorrow} = this.state;
+    const {usd, eur, gbp} = this.state.current_status;
     return (
       <React.Fragment>
-        <div className = "fs-10">
-          <h3> Results of forecasts: </h3>
+
+        <div>
+          <h5> Forecast of BTC-cource on   {tomorrow}: {forecast} </h5>
+        </div>
+
+        <div className = "fs-10 mt-5">
+          <h5> Results of forecasts: </h5>
             <BootstrapTable data={data}>
               <TableHeaderColumn dataField='date' isKey>Date</TableHeaderColumn>
               
@@ -88,9 +128,14 @@ class History extends Component {
               <TableHeaderColumn dataField='result'>Results</TableHeaderColumn>
             </BootstrapTable>
           </div>
-        <div className="mt-5 ">
-          Forecast of BTC-cource on tommorow,  {tomorrow}, is {forecast} 
-        </div>
+
+          <div className="mt-5">
+            <h5> Current course status: </h5>
+            USD: {usd}, <br /> 
+            GBP: {gbp}, <br /> 
+            EUR: {eur} <br /> 
+          </div>
+        
       </React.Fragment>
     );
   }

@@ -77,8 +77,8 @@
       }
     ],
 
-  "forecast": [{
-    "value": "top"
-  }]
+  "forecast": {
+    "value": "up"
+  }
   
 }
