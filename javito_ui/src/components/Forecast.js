@@ -7,13 +7,18 @@ class History extends Component {
   constructor(props) {
     super(props);
 
+    /* get next day */
     let today = new Date(),
         tomorrow_date = (today.getDate() + 1) + '/' + (today.getMonth() + 1) + '/' + (today.getFullYear());
     
     this.state = {
+      /* get data for chart */
       data: [], 
+
+      /* get tommorow date */
       tomorrow: tomorrow_date,
 
+      /* state for current course status block */
       current_status: 
       {
         usd: '',
@@ -22,8 +27,10 @@ class History extends Component {
       }
       ,
       
-      forecast: [],
+      /* forecast value on next day: top/down */
+      forecast: '',
       
+      /* states for table */
       columns : [{
         Header: 'Course',
         accessor: 'course'
@@ -34,19 +41,23 @@ class History extends Component {
     };
   };
   
-  /* function, that creats icons element instead up and down */
-  priceFormatter(cell) {
-    if (cell === 'up') {
-      return (<i className="fas fa-arrow-alt-circle-up text-success"></i>);
-    }
+  /* function that creates icons element instead up and down */
+  actionFormatter(cell) {
+    switch (cell) {
+      case 'up':
+        return <i className="fas fa-arrow-alt-circle-up text-success"></i>;
+      
+      case 'down':
+        return <i className="fas fa-arrow-alt-circle-down text-danger"></i>;
     
-    if (cell === 'down') {
-      return (<i className="fas fa-arrow-alt-circle-down text-danger"></i>);
+      default:
+        break;
     }
   }
-
-
+  
+  
   componentDidMount() {
+    /* get data for table */
     fetch('http://localhost:3000/table')
       .then(response => response.json())
       .then(result => {
@@ -58,25 +69,24 @@ class History extends Component {
         })
       })
 
+      /* get data for forecast of nextday */
       fetch('http://localhost:3000/forecast')
       .then(response => response.json())
       .then(result => {
-        console.log(result);
-        let forecast_val = result.map((number) => number.value);        
+        
         this.setState (
         {
-          forecast: forecast_val[0]
+          forecast: this.actionFormatter(result.value)
         })
       })
       
+      /* gets data for current course's state */
       fetch('http://localhost:3000/chart_data')
       .then(response => response.json())
       .then(result => {
         console.log(result);
         let curStatus_mass = result.map((number) => number);        
         let curStatus = curStatus_mass.pop();
-
-        console.log(curStatus.USD);
         
         this.setState({
           current_status:  
@@ -87,14 +97,6 @@ class History extends Component {
             }
           
         });
-
-        console.log('curstatus', this.state.current_status)
-        //console.log('current status: ', current_status.pop());
-
-       /*  this.setState (
-        {
-          forecast: forecast_val[0]
-        }) */
       })
   }
   
@@ -115,13 +117,13 @@ class History extends Component {
               
               <TableHeaderColumn
                 dataField='trends'
-                dataFormat={this.priceFormatter}>
+                dataFormat={this.actionFormatter}>
                 Trends
               </TableHeaderColumn>
               
               <TableHeaderColumn
                 dataField='forecast'
-                dataFormat={this.priceFormatter}>
+                dataFormat={this.actionFormatter}>
                 Forecast
               </TableHeaderColumn>
 
@@ -131,8 +133,8 @@ class History extends Component {
 
           <div className="mt-5">
             <h5> Current course status: </h5>
-            USD: {usd}, <br /> 
-            GBP: {gbp}, <br /> 
+            USD: {usd} <br /> 
+            GBP: {gbp} <br /> 
             EUR: {eur} <br /> 
           </div>
         
