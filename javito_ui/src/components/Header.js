@@ -9,7 +9,7 @@ class Header extends Component {
             Javito v.1.0
           </div>
           <div className="col-md-6 text-right">
-            email@gmail.com
+            github.com/defex04/Javito
           </div>
         </div>
       </div>
