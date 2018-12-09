@@ -2,13 +2,20 @@ package com.db.javito.dao;
 
 import com.db.javito.dao.interf.MainDao;
 import com.db.javito.model.Main;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -38,21 +45,29 @@ public class MainDaoImp extends JdbcDaoSupport implements MainDao {
     }
 
     @Override
-    public List<Main> getAllData() {
+    public JSONObject getDataPeriod(String fromData, String toData) throws ParseException, JSONException {
+        JSONObject jData = new JSONObject();
+        JSONArray jsonArray = new JSONArray();
+        DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH");
+        Date fromDateObject = format.parse(fromData);
+        Date toDateObject = format.parse(toData);
         String sql = "SELECT * FROM main";
         List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
-
         List<Main> result = new ArrayList<Main>();
         for (Map<String, Object> row : rows) {
             Main main = new Main();
-            main.setId((Integer) row.get("id"));
-            main.setTime((String) row.get("time"));
-            main.setUsd_rate((Float) row.get("usd_rate"));
-            main.setGbp_rate((Float) row.get("gbp_rate"));
-            main.setEur_rate((Float) row.get("eur_rate"));
-            result.add(main);
+            Date current = format.parse((String) row.get("time"));
+            if (current.after(fromDateObject) && current.before(toDateObject)) {
+                JSONObject jElement = new JSONObject();
+                jElement.put("id", row.get("id"));
+                jElement.put("time", row.get("time"));
+                jElement.put("usd", row.get("usd_rate"));
+                jElement.put("gbp", row.get("gbp_rate"));
+                jElement.put("eur", row.get("eur_rate"));
+                jsonArray.put(jElement);
+            }
         }
-
-        return result;
+        jData.put("data", jsonArray);
+        return jData;
     }
 }

@@ -2,9 +2,13 @@ package com.db.javito.controller;
 
 import com.db.javito.math_python.PythonMath;
 import com.db.javito.model.Main;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
+
+import java.text.ParseException;
 
 import static com.db.javito.JavitoApplication.mainService;
 
@@ -12,21 +16,13 @@ import static com.db.javito.JavitoApplication.mainService;
 @EnableAutoConfiguration
 public class MainController {
 
-    @RequestMapping("/")
-    @ResponseBody
-    String hello() {
-
-        StringBuilder str = new StringBuilder();
-        for (Main main : mainService.getAllData()) {
-            str.append(main.toString());
-        }
-        return str.toString();
-    }
-
     @GetMapping("/hello")
-    @CrossOrigin(origins = "https://javito2018.herokuapp.com")
-    public String greet() {
-        return PythonMath.test;
+    //@CrossOrigin(origins = "https://javito2018.herokuapp.com")
+    public JSONObject greet() throws ParseException, JSONException {
+        String fromDate = "2018/11/25 19";
+        String toDate = "2018/11/26 15";
+        return mainService.getDataPeriod(fromDate, toDate);
+        //return PythonMath.test;
     }
 
     @RequestMapping(value="user", method = RequestMethod.GET)
@@ -35,8 +31,11 @@ public class MainController {
         return i;
     }
 
-    @PostMapping("/ha")
-    public String gt() {
-        return "haha";
+    @RequestMapping(value="chart", method = RequestMethod.GET)
+    public @ResponseBody JSONObject sendDataForGraph (@RequestParam("fromDate") String fromDate,
+                                       @RequestParam("toDate") String toDate,
+                                       @RequestParam("currency") String currency) throws ParseException, JSONException {
+
+        return mainService.getDataPeriod(fromDate, toDate);
     }
 }

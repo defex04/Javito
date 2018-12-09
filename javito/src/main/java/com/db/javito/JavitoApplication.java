@@ -35,6 +35,7 @@ public class JavitoApplication {
         System.out.println("Javito");
 
         mainService = context.getBean(MainService.class);
+        //mainService.getDataPeriod("2018/11/25 19", "2018/11/26 04");
         eurPredictService = context.getBean(EurPredictService.class);
         usdPredictService = context.getBean(UsdPredictService.class);
         gbpPredictService = context.getBean(GbpPredictService.class);
@@ -42,7 +43,7 @@ public class JavitoApplication {
         eurMinMaxService = context.getBean(EurMinMaxService.class);
         gbpMinMaxService = context.getBean(GbpMinMaxService.class);
 
-        PythonMath.runPython();
+        //PythonMath.runPython();
 
     }
 }

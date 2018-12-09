@@ -1,7 +1,10 @@
 package com.db.javito.service.interf;
 
 import com.db.javito.model.Main;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.text.ParseException;
 import java.util.List;
 
 public interface MainService {
@@ -9,5 +12,5 @@ public interface MainService {
 
     String getById(Integer id);
 
-    List<Main> getAllData();
+    JSONObject getDataPeriod(String fromData, String toData) throws ParseException, JSONException;
 }
