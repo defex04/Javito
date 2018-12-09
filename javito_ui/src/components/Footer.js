@@ -4,10 +4,11 @@ class Header extends Component {
   render() {
     return (
       <div className="card-header bg-info text-white mt-5">
-        <div className = "container d-flex">
-          
-          
-        </div>
+        <footer className="page-footer font-small bg-info">
+          <div className="container">
+            <div className="row py-4 d-flex align-items-center"></div>
+          </div>
+        </footer>
       </div>
     )
   }
