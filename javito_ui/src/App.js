@@ -2,28 +2,25 @@ import React, { Component } from 'react';
 import './App.css';
 import Chart from './components/Chart';
 import Header from './components/Header';
-/* import Footer from './components/Footer';*/
 import Forecast from './components/Forecast';
+import Footer from './components/Footer';
 
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Header />
-        
         <div className ="container  d-flex">
-          <div className="mb-5 col-md-8">
+          <div className="col-md-8 mb-5 ">
             <Chart />
           </div>
-
           <div className="col-md-4  mt-5">
             <Forecast /> 
           </div>
         </div>
-        
-        {/* <Footer /> */}
-      </div>
+        <Footer />
+      </React.Fragment>
     );  
   }
 }
