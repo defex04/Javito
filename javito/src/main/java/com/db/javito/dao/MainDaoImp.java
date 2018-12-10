@@ -59,11 +59,11 @@ public class MainDaoImp extends JdbcDaoSupport implements MainDao {
             Date current = format.parse((String) row.get("time"));
             if (current.after(fromDateObject) && current.before(toDateObject)) {
                 JSONObject jElement = new JSONObject();
-                jElement.put("id", row.get("id"));
-                jElement.put("time", row.get("time"));
-                jElement.put("usd", row.get("usd_rate"));
-                jElement.put("gbp", row.get("gbp_rate"));
-                jElement.put("eur", row.get("eur_rate"));
+                jElement.put("id", String.valueOf(row.get("id")));
+                jElement.put("time", String.valueOf(row.get("time")));
+                jElement.put("usd", String.valueOf(row.get("usd_rate")));
+                jElement.put("gbp", String.valueOf(row.get("gbp_rate")));
+                jElement.put("eur", String.valueOf(row.get("eur_rate")));
                 jsonArray.put(jElement);
             }
         }
