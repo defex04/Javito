@@ -17,7 +17,7 @@ import static com.db.javito.JavitoApplication.mainService;
 public class MainController {
 
     @GetMapping("/hello")
-    //@CrossOrigin(origins = "https://javito2018.herokuapp.com")
+    @CrossOrigin(origins = "http://localhost:3000/")
     public JSONObject greet() throws ParseException, JSONException {
         String fromDate = "2018/11/25 19";
         String toDate = "2018/11/26 15";
