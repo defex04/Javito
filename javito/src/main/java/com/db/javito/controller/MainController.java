@@ -35,10 +35,10 @@ public class MainController {
     }
 
     @RequestMapping(value="chart", method = RequestMethod.GET)
-    public @ResponseBody JSONArray sendDataForGraph (@RequestParam("fromDate") String fromDate,
+    public @ResponseBody String sendDataForGraph (@RequestParam("fromDate") String fromDate,
                                        @RequestParam("toDate") String toDate,
                                        @RequestParam("currency") String currency) throws ParseException, JSONException {
 
-        return mainService.getDataPeriod(fromDate, toDate);
+        return mainService.getDataPeriod(fromDate, toDate).toString();
     }
 }
