@@ -1,6 +1,8 @@
 package com.db.javito.dao.interf;
 
 import com.db.javito.model.Main;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -12,5 +14,5 @@ public interface MainDao {
 
     String findById(Integer id);
 
-    JSONObject getDataPeriod(String fromData, String toData) throws ParseException, JSONException;
+    JSONArray getDataPeriod(String fromData, String toData) throws ParseException, JSONException;
 }
