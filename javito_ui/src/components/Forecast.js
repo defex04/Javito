@@ -58,7 +58,7 @@ class History extends Component {
   
   componentDidMount() {
     /* get data for table */
-    fetch('http://localhost:3000/table')
+    fetch('http://localhost:3004/table')
       .then(response => response.json())
       .then(result => {
         console.log(result);
@@ -70,7 +70,7 @@ class History extends Component {
       })
 
       /* get data for forecast of nextday */
-      fetch('http://localhost:3000/forecast')
+      fetch('http://localhost:3004/forecast')
       .then(response => response.json())
       .then(result => {
         
@@ -81,7 +81,7 @@ class History extends Component {
       })
       
       /* gets data for current course's state */
-      fetch('http://localhost:3000/chart_data')
+      fetch('http://localhost:8081/hello/')
       .then(response => response.json())
       .then(result => {
         console.log(result);
@@ -91,9 +91,9 @@ class History extends Component {
         this.setState({
           current_status:  
             {
-              usd: +curStatus.USD,
-              eur: +curStatus.EUR,
-              gbp: +curStatus.GBP
+              usd: +curStatus.usd,
+              eur: +curStatus.eur,
+              gbp: +curStatus.gbp
             }
           
         });

@@ -61,7 +61,7 @@ class ChartX extends Component {
 
   /* Function, that sets the values in state */
   
-  componentDidMount () {
+ /*  componentDidMount () {
     fetch ('http://localhost:3000/chart_data')
       .then(res => res.json())
       .then(
@@ -83,15 +83,13 @@ class ChartX extends Component {
               }],           
             }); 
         })
-  }
+  } */
 
   getRequest = (URL) => { 
     fetch(URL)
       .then(res => res.json())
       .then(
         (result) => {
-
-          /* Get all data parametrs */
           let date_mass = result.map((number) => number.date);
           let data_val = '';
           let text_val = '';
@@ -153,7 +151,7 @@ class ChartX extends Component {
           console.log('toDate: ', this.state.toDate);
         }
       )
-    }
+  }
   
   /* Handler of date and value data */
   onChange = e => this.setState ({
@@ -170,15 +168,18 @@ class ChartX extends Component {
       currency: this.state.currency
     };
 
-    const URL =`http://localhost:3000/chart_data?fromDate=${data.fromDate}&toDate=${data.toDate}&currency=${data.currency}`;
-
+/*     const URL =`http://localhost:3001/hello?fromDate=${data.fromDate}&toDate=${data.toDate}&currency=${data.currency}`;
+ */
+    
      /* if date in state not empty and fromDate less toDate,
       then sends data in state  */
     if (data.fromDate !== '' 
       && data.toDate !== ''
       && data.fromDate <= data.toDate
-      && this.getRequest(URL)
+      && this.getRequest(`http://localhost:3004/chart_data/`)
     );
+
+    console.log (data);
   }
 
   
