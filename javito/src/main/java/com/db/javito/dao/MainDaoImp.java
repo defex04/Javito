@@ -45,7 +45,7 @@ public class MainDaoImp extends JdbcDaoSupport implements MainDao {
     }
 
     @Override
-    public JSONObject getDataPeriod(String fromData, String toData) throws ParseException, JSONException {
+    public JSONArray getDataPeriod(String fromData, String toData) throws ParseException, JSONException {
         JSONObject jData = new JSONObject();
         JSONArray jsonArray = new JSONArray();
         DateFormat format = new SimpleDateFormat("yyyy/MM/dd HH");
@@ -67,7 +67,9 @@ public class MainDaoImp extends JdbcDaoSupport implements MainDao {
                 jsonArray.put(jElement);
             }
         }
-        jData.put("data", jsonArray);
-        return jData;
+        //jData.put("data", jsonArray);
+        //jData.put(jsonArray);
+        //jData.put(jsonArray);
+        return jsonArray;
     }
 }
