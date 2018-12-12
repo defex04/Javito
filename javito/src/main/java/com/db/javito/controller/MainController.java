@@ -2,6 +2,8 @@ package com.db.javito.controller;
 
 import com.db.javito.math_python.PythonMath;
 import com.db.javito.model.Main;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -14,14 +16,15 @@ import static com.db.javito.JavitoApplication.mainService;
 
 @RestController
 @EnableAutoConfiguration
+@CrossOrigin
 public class MainController {
 
     @GetMapping("/hello")
-    @CrossOrigin(origins = "http://localhost:3000/")
-    public JSONObject greet() throws ParseException, JSONException {
+    @CrossOrigin
+    public String greet() throws ParseException, JSONException {
         String fromDate = "2018/11/25 19";
         String toDate = "2018/11/26 15";
-        return mainService.getDataPeriod(fromDate, toDate);
+        return mainService.getDataPeriod(fromDate, toDate).toString();
         //return PythonMath.test;
     }
 
@@ -32,7 +35,7 @@ public class MainController {
     }
 
     @RequestMapping(value="chart", method = RequestMethod.GET)
-    public @ResponseBody JSONObject sendDataForGraph (@RequestParam("fromDate") String fromDate,
+    public @ResponseBody JSONArray sendDataForGraph (@RequestParam("fromDate") String fromDate,
                                        @RequestParam("toDate") String toDate,
                                        @RequestParam("currency") String currency) throws ParseException, JSONException {
 
